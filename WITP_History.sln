@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WITP_History", "WITP_History\WITP_History.csproj", "{05563E20-E0C3-4710-A270-B3C7C43939C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05563E20-E0C3-4710-A270-B3C7C43939C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05563E20-E0C3-4710-A270-B3C7C43939C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05563E20-E0C3-4710-A270-B3C7C43939C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05563E20-E0C3-4710-A270-B3C7C43939C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D805CB82-143E-443F-A88C-284C629F73E5}
+	EndGlobalSection
+EndGlobal
