@@ -215,8 +215,7 @@ namespace WITP_History
                     //Only add for each side if contains "Japanese" or "Allied" (Fog of War)
                     for (int j = 0; j < reports.Count; j++)
                     {
-                        if(reports[j].Contains("Japanese"))
-                        {
+                        
                             if (japan.ContainsKey(date))
                             {
                                 japan[date].Item1.Add(reports[j]);
@@ -224,13 +223,12 @@ namespace WITP_History
                             }
                             else
                                 japan.Add(date, new Tuple<List<string>, List<string>>(new List<string>() { reports[j] }, new List<string>() { reports[j].ToLower() }));
-                        }
+                        
                     }
 
                     for (int j = 0; j < reports.Count; j++)
                     {
-                        if (reports[j].Contains("Allied"))
-                        {
+                        
                             if (allies.ContainsKey(date))
                             {
                                 allies[date].Item1.Add(reports[j]);
@@ -238,7 +236,7 @@ namespace WITP_History
                             }
                             else
                                 allies.Add(date, new Tuple<List<string>, List<string>>(new List<string>() { reports[j] }, new List<string>() { reports[j].ToLower() }));
-                        }
+                        
                     }
                 }
             }
