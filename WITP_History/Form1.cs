@@ -276,7 +276,7 @@ namespace WITP_History
             if (query.Replace(" ", "").Length <= 2)
                 return "Search query too small";
 
-            string queryResults = "";
+            StringBuilder queryResults = new StringBuilder("");
 
             //Japan or Allies
             Dictionary<string, Tuple<List<string>, List<string>>> database = null;
@@ -306,21 +306,79 @@ namespace WITP_History
                 //Display matches
                 if (results.Count > 0)
                 {
-                    queryResults += "\n" + item.Key + "\n";
+                    queryResults.Append("\n" + item.Key + "\n");
 
                     for (int i = 0; i < results.Count; i++)
                     {
-                        queryResults += results[i] + "\n";
+                        queryResults.Append(results[i] + "\n");
                     }
                 }
             }
 
-            return queryResults;
+            return queryResults.ToString();
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             textBox2_TextChanged(sender, e);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            richTextBox2.Text = QueryDate(textBox3.Text.ToLower());
+        }
+
+        private string QueryDate(string query)
+        {
+            if (japan == null || allies == null)
+                return "Set the path to your Archives folder in the Settings tab";
+
+            //Dont search unless some characters
+            if (query.Replace(" ", "").Length <= 2)
+                return "Search query too small";
+
+            StringBuilder queryResults = new StringBuilder("");
+
+            //Japan or Allies
+            Dictionary<string, Tuple<List<string>, List<string>>> database = null;
+            if (comboBox1.SelectedIndex == 0)
+                database = japan;
+            else
+                database = allies;
+
+            //Match
+            List<string> results = new List<string>();
+            foreach (var item in database)
+            {
+                List<string> events = database[item.Key].Item1;
+                List<string> eventsLowered = database[item.Key].Item2;
+
+                results.Clear();
+
+                //Get Date matches
+                if (item.Key.ToLower().Contains(query))
+                {
+                    results.AddRange(events);
+                }
+
+                //Display matches
+                if (results.Count > 0)
+                {
+                    queryResults.Append("\n" + item.Key + "\n");
+
+                    for (int i = 0; i < results.Count; i++)
+                    {
+                        queryResults.Append(results[i] + "\n");
+                    }
+                }
+            }
+
+            return queryResults.ToString();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox3_TextChanged(sender, e);
         }
     }
 }
